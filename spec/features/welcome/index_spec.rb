@@ -9,7 +9,7 @@ RSpec.describe "Welcome Page Search", type: :feature do
       click_button "Search"
 
       expect(current_path).to eq(foods_path)
-      expect(page).to have_content("Total results: > 30,000")
+      expect(page).to have_content("Total Results: > 30,000")
       expect(page).to have_content("Food with Sweet Potato", count: 10)
       expect(page).to have_content("GTIN/UPC code:")
       expect(page).to have_content("Description:")
