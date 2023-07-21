@@ -4,9 +4,9 @@ class FoodsController < ApplicationController
       faraday.headers["X-API-KEY"] = ENV["X-API-KEY"]
     end
 
-    response = conn.get("/food/Sweet%20Potato")
-
+    response = conn.get("/foods/search?query=sweet%20potato&dataType=&pageSize=10&sortOrder=asc")
     json = JSON.parse(response.body, symbolize_names: true)
+    require 'pry'; binding.pry
     @food = json[:results].map do |food_data|
       Food.new(food_data)
     end
